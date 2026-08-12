@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html class="dark" dir="rtl" lang="ar">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>نخبة المهندسين - حلول ذكاء اصطناعي وأتمتة</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link rel="shortcut icon" href="./a_1024x1024_app_icon_for_elite_engineers._the_design_features_a_minimalist_high.png" type="image/x-icon">
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&amp;family=Oswald:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed": "#410004",
+                        "on-surface-variant": "#e2bfb9",
+                        "on-tertiary": "#313030",
+                        "surface-variant": "#353535",
+                        "secondary": "#ffb3ae",
+                        "tertiary-fixed-dim": "#c9c6c5",
+                        "surface-tint": "#ffb4a8",
+                        "surface-container": "#20201f",
+                        "secondary-fixed-dim": "#ffb3ae",
+                        "on-primary-fixed-variant": "#8f0f07",
+                        "surface-container-highest": "#353535",
+                        "on-tertiary-container": "#a9a6a6",
+                        "primary-container": "#800000",
+                        "on-secondary-fixed-variant": "#930014",
+                        "secondary-container": "#a90219",
+                        "on-tertiary-fixed": "#1c1b1b",
+                        "on-error": "#690005",
+                        "primary-fixed": "#ffdad4",
+                        "on-primary-fixed": "#410000",
+                        "on-secondary-container": "#ffb3ad",
+                        "primary": "#ffb4a8",
+                        "tertiary-container": "#3d3c3c",
+                        "error-container": "#93000a",
+                        "primary-fixed-dim": "#ffb4a8",
+                        "surface-container-high": "#2a2a2a",
+                        "inverse-on-surface": "#313030",
+                        "surface": "#131313",
+                        "secondary-fixed": "#ffdad7",
+                        "surface-dim": "#131313",
+                        "inverse-primary": "#b22b1d",
+                        "tertiary": "#c9c6c5",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-background": "#e5e2e1",
+                        "surface-bright": "#393939",
+                        "on-secondary": "#68000b",
+                        "inverse-surface": "#e5e2e1",
+                        "on-surface": "#e5e2e1",
+                        "outline-variant": "#5a413d",
+                        "surface-container-low": "#1c1b1b",
+                        "on-primary-container": "#ff8371",
+                        "outline": "#a98984",
+                        "background": "#131313",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#474646",
+                        "tertiary-fixed": "#e5e2e1",
+                        "error": "#ffb4ab",
+                        "on-primary": "#690000"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "margin-desktop": "64px",
+                        "container-max": "1440px",
+                        "margin-mobile": "20px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Cairo", "Oswald", "sans-serif"],
+                        "body-md": ["Cairo", "sans-serif"],
+                        "body-lg": ["Cairo", "sans-serif"],
+                        "headline-lg": ["Oswald", "Cairo", "sans-serif"],
+                        "headline-md": ["Oswald", "Cairo", "sans-serif"],
+                        "headline-xl": ["Oswald", "Cairo", "sans-serif"],
+                        "headline-lg-mobile": ["Oswald", "Cairo", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", { "lineHeight": "1.2", "letterSpacing": "0.1em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-lg": ["48px", { "lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "500" }],
+                        "headline-xl": ["64px", { "lineHeight": "1.1", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* --- الأنيميشنات والإضافات الجديدة --- */
+        * { margin:0; padding:0; box-sizing:border-box; }
+        
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* 1. تحسين الأزرار المتوهجة مع تأثير تموج (Ripple) */
+        .glowing-btn {
+            background-color: #800000;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .glowing-btn:hover {
+            background: linear-gradient(90deg, #800000, #FF4D4D);
+            box-shadow: 0 0 30px rgba(255, 77, 77, 0.8);
+            transform: scale(1.05);
+        }
+        .glowing-btn:active::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(255,255,255,0.4), transparent 70%);
+            pointer-events: none;
+            animation: ripple 0.6s ease-out;
+        }
+        @keyframes ripple {
+            0% { transform: scale(0); opacity:1; }
+            100% { transform: scale(4); opacity:0; }
+        }
+
+        /* 2. التوهج النابض المستمر */
+        .pulse-glow {
+            animation: pulse-glow-anim 2s infinite;
+        }
+        @keyframes pulse-glow-anim {
+            0% { box-shadow: 0 0 10px rgba(255, 77, 77, 0.3); border-color: rgba(255, 77, 77, 0.4); }
+            50% { box-shadow: 0 0 30px rgba(255, 77, 77, 0.9); border-color: rgba(255, 77, 77, 1); }
+            100% { box-shadow: 0 0 10px rgba(255, 77, 77, 0.3); border-color: rgba(255, 77, 77, 0.4); }
+        }
+
+        /* 3. حدود الحقول المتوهجة */
+        .glowing-border {
+            transition: all 0.3s ease;
+            border-bottom: 1px solid #333333;
+            background-color: #0A0A0A;
+        }
+        .glowing-border:focus {
+            border-bottom: 1px solid #FF4D4D;
+            box-shadow: 0 -4px 10px -4px rgba(255, 77, 77, 0.2) inset;
+            outline: none;
+        }
+
+        /* 4. بطاقات البنتو مع حركة دوران وارتفاع عند المرور */
+        .bento-card {
+            background-color: #1A1A1A;
+            border: 1px solid #333333;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .bento-card:hover {
+            border-color: #800000;
+            box-shadow: 0 0 25px rgba(128, 0, 0, 0.5);
+            transform: translateY(-8px) rotateX(2deg) rotateY(2deg);
+        }
+
+        /* 5. اللوح الزجاجي */
+        .glass-panel {
+            background: rgba(26, 26, 26, 0.3);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+        .glass-panel:hover {
+            border-color: #800000;
+            box-shadow: 0 0 20px rgba(128, 0, 0, 0.2);
+        }
+
+        /* 6. ظهور العناصر من الأسفل مع ميلان عند التمرير (Fade-up + Rotate) */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(40px) rotateX(-5deg);
+            transition: opacity 0.9s cubic-bezier(0.23, 1, 0.32, 1), transform 0.9s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0) rotateX(0);
+        }
+
+        /* 7. خلفية الهيدر المتدرجة المتحركة */
+        .header-gradient {
+            background: linear-gradient(270deg, rgba(10,10,10,0.95), rgba(40,0,0,0.95), rgba(10,10,10,0.95));
+            background-size: 300% 300%;
+            animation: gradient-shift 12s ease infinite;
+        }
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* 8. خلفية الهيرو مع شبكة ونقاط متحركة */
+        .hero-grid-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(128,0,0,0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255,77,77,0.05) 0%, transparent 40%),
+                radial-gradient(circle at 50% 80%, rgba(128,0,0,0.1) 0%, transparent 45%);
+            background-size: 200% 200%;
+            animation: bgFloat 15s ease-in-out infinite alternate;
+        }
+        @keyframes bgFloat {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 100% 100%; }
+        }
+        
+        /* 9. النقاط العائمة */
+        .floating-dots {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            overflow: hidden;
+            opacity: 0.3;
+        }
+        .dot {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: #800000;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #800000;
+            animation: floatDot 8s infinite alternate ease-in-out;
+        }
+        @keyframes floatDot {
+            0% { transform: translate(0,0) scale(1); }
+            100% { transform: translate(30px, -40px) scale(1.5); }
+        }
+
+        /* 10. تأثير الكتابة (Typing) */
+        .typing-text {
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+            border-left: 2px solid #FF4D4D;
+            animation: typing 3s steps(30, end) forwards, blink 0.8s step-end infinite;
+            width: 0;
+        }
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+
+        /* 11. تفعيل الكتابة على الجوال (إلغاء التأثير لأنه يظهر بشكل غريب) */
+        @media (max-width: 768px) {
+            .typing-text { white-space: normal; border-left: none; animation: none; width: auto; }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden selection:bg-primary-container selection:text-white">
+
+<!-- ====== الهيدر الثابت ====== -->
+<header class="header-gradient backdrop-blur-xl fixed top-0 left-0 w-full z-50 border-b border-surface-variant/30 shadow-sm transition-all duration-300">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto rtl">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary">
+                نخبة المهندسين
+            </div>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="text-on-surface-variant font-medium hover:text-secondary transition-colors duration-300 font-label-caps text-label-caps" href="#services">خدماتنا</a>
+<a class="text-on-surface-variant font-medium hover:text-secondary transition-colors duration-300 font-label-caps text-label-caps" href="#why-us">لماذا نحن؟</a>
+<a class="text-on-surface-variant font-medium hover:text-secondary transition-colors duration-300 font-label-caps text-label-caps" href="#process">منهجية العمل</a>
+<a class="text-on-surface-variant font-medium hover:text-secondary transition-colors duration-300 font-label-caps text-label-caps" href="#community">مجتمعنا</a>
+</nav>
+<a class="glowing-btn text-white px-6 py-2 rounded font-label-caps text-label-caps hidden md:inline-block pulse-glow" href="#contact">
+                تواصل
+            </a>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+</div>
+</header>
+
+<!-- ====== قسم الهيرو مع الخلفية المتحركة ====== -->
+<section class="relative min-h-[921px] flex items-center justify-center overflow-hidden w-full fade-up pt-20">
+    <div class="hero-grid-bg"></div>
+    <div class="floating-dots">
+        <div class="dot" style="top:15%; left:10%; animation-delay:0s;"></div>
+        <div class="dot" style="top:75%; left:80%; animation-delay:2s;"></div>
+        <div class="dot" style="top:40%; left:90%; animation-delay:4s;"></div>
+        <div class="dot" style="top:85%; left:20%; animation-delay:1s;"></div>
+        <div class="dot" style="top:10%; left:70%; animation-delay:3s;"></div>
+    </div>
+    <div class="relative z-10 text-center px-margin-mobile md:px-margin-desktop max-w-4xl mx-auto flex flex-col items-center gap-6 mt-12 md:mt-0">
+        <h1 class="font-headline-xl text-headline-lg-mobile md:text-headline-xl text-white drop-shadow-2xl font-bold leading-tight">
+            نحن المهندسون الذين لا يستطيع 
+            <span class="text-primary drop-shadow-[0_0_15px_rgba(255,180,168,0.5)]">
+                <span class="typing-text">الذكاء الاصطناعي</span>
+            </span> 
+            استبدالنا.
+        </h1>
+        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+            نبني بوتات ذكاء اصطناعي، أنظمة أتمتة، ومنصات رقمية بجودة احترافية لضمان نمو أعمالك 24/7.
+        </p>
+        <a class="glowing-btn pulse-glow text-white px-8 py-4 rounded-lg font-headline-md text-headline-md mt-4 shadow-[0_0_20px_rgba(128,0,0,0.4)]" href="#contact">
+            استشر مهندسنا الآن
+        </a>
+    </div>
+    <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-background to-transparent z-10 pointer-events-none"></div>
+</section>
+
+<!-- ====== قسم المشكلة ====== -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop bg-[#0A0A0A] fade-up" id="problem">
+<div class="max-w-container-max mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-white mb-6">
+                    لماذا تخسر العملاء بينما يمكنك استغلال التكنولوجيا لخدمتهم بشكل أفضل؟
+                </h2>
+<div class="w-24 h-1 bg-primary-container mx-auto mb-8 shadow-[0_0_10px_rgba(128,0,0,0.8)]"></div>
+</div>
+<div class="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
+<div class="bento-card p-8 rounded-xl flex flex-col gap-6 relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-full h-1 bg-[#333333]"></div>
+<div class="flex items-center gap-4 text-on-surface-variant">
+<span class="material-symbols-outlined text-4xl" data-icon="schedule">schedule</span>
+<h3 class="font-headline-md text-headline-md text-white">القيود البشرية</h3>
+</div>
+<ul class="space-y-4 font-body-md text-on-surface-variant">
+<li class="flex items-center gap-3"><span class="material-symbols-outlined text-secondary" data-icon="close">close</span> ساعات عمل محدودة</li>
+<li class="flex items-center gap-3"><span class="material-symbols-outlined text-secondary" data-icon="close">close</span> تكاليف تشغيل عالية</li>
+<li class="flex items-center gap-3"><span class="material-symbols-outlined text-secondary" data-icon="close">close</span> تأخير في الردود</li>
+</ul>
+</div>
+<div class="bento-card p-8 rounded-xl flex flex-col gap-6 relative overflow-hidden group border-t-2 border-t-[#FF4D4D]">
+<div class="absolute top-0 right-0 w-full h-full bg-gradient-to-br from-primary-container/10 to-transparent pointer-events-none"></div>
+<div class="flex items-center gap-4 text-primary">
+<span class="material-symbols-outlined text-4xl" data-icon="memory">memory</span>
+<h3 class="font-headline-md text-headline-md text-white">الكفاءة الذكية 24/7</h3>
+</div>
+<ul class="space-y-4 font-body-md text-on-surface">
+<li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary" data-icon="check_circle">check_circle</span> عمل مستمر بلا انقطاع</li>
+<li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary" data-icon="check_circle">check_circle</span> تقليل التكاليف وزيادة العائد</li>
+<li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary" data-icon="check_circle">check_circle</span> ردود فورية ودقيقة</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ====== قسم الخدمات ====== -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop bg-background relative fade-up" id="services">
+<div class="absolute top-1/2 left-1/4 w-96 h-96 bg-primary-container/20 rounded-full blur-[100px] pointer-events-none"></div>
+<div class="max-w-container-max mx-auto relative z-10">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-white mb-16 text-center">خدمات النخبة</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Service 1 -->
+<div class="bento-card p-6 rounded-xl flex flex-col gap-4 group">
+<div class="w-12 h-12 rounded bg-surface flex items-center justify-center border border-[#333333] group-hover:border-primary-container transition-colors">
+<span class="material-symbols-outlined text-secondary" data-icon="smart_toy">smart_toy</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-white">بوتات الذكاء الاصطناعي</h3>
+<p class="font-body-md text-on-surface-variant text-sm">تطوير وكلاء أذكياء يتفاعلون مع عملائك بذكاء وسرعة، مخصصين لاحتياجات عملك.</p>
+</div>
+<!-- Service 2 -->
+<div class="bento-card p-6 rounded-xl flex flex-col gap-4 group">
+<div class="w-12 h-12 rounded bg-surface flex items-center justify-center border border-[#333333] group-hover:border-primary-container transition-colors">
+<span class="material-symbols-outlined text-secondary" data-icon="precision_manufacturing">precision_manufacturing</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-white">أتمتة العمليات</h3>
+<p class="font-body-md text-on-surface-variant text-sm">تحويل المهام الروتينية إلى تدفقات عمل آلية توفر الوقت والجهد وتقلل الأخطاء.</p>
+</div>
+<!-- Service 3 -->
+<div class="bento-card p-6 rounded-xl flex flex-col gap-4 group border-t-2 border-t-[#FF4D4D] shadow-[0_0_15px_rgba(128,0,0,0.1)]">
+<div class="w-12 h-12 rounded bg-surface flex items-center justify-center border border-[#333333] group-hover:border-primary-container transition-colors">
+<span class="material-symbols-outlined text-secondary" data-icon="language">language</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-white">بناء الأنظمة والمواقع</h3>
+<p class="font-body-md text-on-surface-variant text-sm">منصات رقمية قوية وآمنة، مصممة بأحدث التقنيات لتقديم تجربة مستخدم استثنائية.</p>
+</div>
+<!-- Service 4 -->
+<div class="bento-card p-6 rounded-xl flex flex-col gap-4 group">
+<div class="w-12 h-12 rounded bg-surface flex items-center justify-center border border-[#333333] group-hover:border-primary-container transition-colors">
+<span class="material-symbols-outlined text-secondary" data-icon="database">database</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-white">داتا إنترى احترافية</h3>
+<p class="font-body-md text-on-surface-variant text-sm">إدارة وتنظيم البيانات بدقة متناهية، لضمان جودة المعلومات وسهولة الوصول إليها.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ====== قسم لماذا نحن ====== -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop bg-[#0A0A0A] fade-up" id="why-us">
+<div class="max-w-container-max mx-auto flex flex-col lg:flex-row gap-16 items-center">
+<div class="lg:w-1/2">
+<div class="w-full h-[500px] rounded-2xl overflow-hidden relative border border-[#333333]">
+<div class="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] to-transparent z-10"></div>
+<div class="bg-cover bg-center w-full h-full opacity-60" data-alt="A sleek, dimly lit high-tech command center environment with multiple glowing screens displaying complex data visualizations in red and deep black hues. The atmosphere is highly professional, sophisticated, and exclusive, embodying elite engineering precision. The lighting emphasizes the advanced technological capability of the space." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCOucQozRJ34-hBdU-bCtN-rXrutX6IV1cfsGI2-L_3Saa6pe5vZpE7WOFM3GuLRUWl0KDeHdM5kQ9rq_Gy8nPasH8bWutSqOYsZexKIAN27bcKAA-2nF6J6aEjF8MlN1aIYwRhIZFQa2pLBQTNn-YgKV7_1Nr2ivUqd5gu99TISxPxmNq9Ih0MXKvPixIvMQ4M83ju4jIA_c1G_yqLaUGnD-GOb_QwhVR3yweQPmetBZ1huenXGX6vPw')"></div>
+</div>
+</div>
+<div class="lg:w-1/2 flex flex-col gap-8">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-white">
+                    لماذا نحن؟ <br/><span class="text-primary">الجودة ليست رفاهية، إنها ضرورة.</span>
+</h2>
+<div class="space-y-6">
+<div class="glass-panel p-6 rounded-xl flex gap-4">
+<div class="mt-1"><span class="material-symbols-outlined text-primary" data-icon="security">security</span></div>
+<div>
+<h4 class="font-headline-md text-white text-lg mb-2">ضد المولدات الآلية العشوائية</h4>
+<p class="font-body-md text-on-surface-variant">نحن لا نعتمد على قوالب جاهزة تفتقر للسياق والأمان. كل نظام نبنيه مصمم خصيصاً ليناسب تعقيدات عملك بأعلى معايير الأمان.</p>
+</div>
+</div>
+<div class="glass-panel p-6 rounded-xl flex gap-4">
+<div class="mt-1"><span class="material-symbols-outlined text-primary" data-icon="verified_user">verified_user</span></div>
+<div>
+<h4 class="font-headline-md text-white text-lg mb-2">استقرار يتفوق على المنافسة الرخيصة</h4>
+<p class="font-body-md text-on-surface-variant">بأكثر من 5 سنوات من الخبرة العميقة، نقدم حلولاً مستقرة قابلة للتطوير، تحميك من تكاليف إعادة البناء التي تسببها الحلول الرخيصة.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ====== قسم المجتمع (GitHub, WhatsApp, Telegram) ====== -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop bg-background fade-up" id="community">
+<div class="max-w-container-max mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-white mb-6">
+                    مجتمع النخبة
+                </h2>
+<p class="font-body-md text-on-surface-variant max-w-2xl mx-auto">
+                    انضم إلى مجتمعنا لتكون أول من يحصل على أحدث التقنيات، النصائح، والعروض الحصرية.
+                </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- GitHub Card -->
+<div class="p-8 rounded-2xl flex flex-col items-center text-center gap-6 border border-[#333333] hover:border-[#FF4D4D] bg-transparent pulse-glow transition-all duration-300">
+<span class="material-symbols-outlined text-6xl text-white" data-icon="code">code</span>
+<h3 class="font-headline-md text-headline-md text-white font-bold">مفتوح المصدر</h3>
+<p class="font-body-md text-on-surface-variant flex-grow">اطلع على جودة الكود الخاصة بنا وشارك في مشاريعنا المفتوحة المصدر.</p>
+<a class="glowing-btn w-full py-3 rounded text-white font-bold mt-auto" href="https://github.com/mahmudmahmod519-code">تصفح المستودعات</a>
+</div>
+<!-- WhatsApp Card -->
+<div class="p-8 rounded-2xl flex flex-col items-center text-center gap-6 border border-[#333333] hover:border-[#FF4D4D] bg-transparent pulse-glow transition-all duration-300">
+<span class="material-symbols-outlined text-6xl text-green-500" data-icon="forum">forum</span>
+<h3 class="font-headline-md text-headline-md text-white font-bold">نصائح الأتمتة</h3>
+<p class="font-body-md text-on-surface-variant flex-grow">انضم لقناتنا على واتساب للحصول على نصائح حصرية حول أتمتة الأعمال يومياً.</p>
+<a class="glowing-btn w-full py-3 rounded text-white font-bold mt-auto" href="https://whatsapp.com/channel/0029Vb8fuIm2phHSWr2poR2J">انضم للقناة</a>
+</div>
+<!-- Telegram Card -->
+<div class="p-8 rounded-2xl flex flex-col items-center text-center gap-6 border border-[#333333] hover:border-[#FF4D4D] bg-transparent pulse-glow transition-all duration-300">
+<span class="material-symbols-outlined text-6xl text-blue-400" data-icon="send">send</span>
+<h3 class="font-headline-md text-headline-md text-white font-bold">عروض حصرية</h3>
+<p class="font-body-md text-on-surface-variant flex-grow">اشترك في تيليجرام للحصول على خصومات وكوبونات خاصة وحصرية للمشتركين.</p>
+<a class="glowing-btn w-full py-3 rounded text-white font-bold mt-auto" href="https://t.me/+YB9lk7BzhAcwYTU0">اشترك الآن</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ====== نموذج التواصل (الجزء الأهم) ====== -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop bg-background relative overflow-hidden fade-up" id="contact">
+<div class="absolute top-0 right-0 w-full h-px bg-gradient-to-r from-transparent via-[#800000] to-transparent opacity-50"></div>
+<div class="absolute bottom-0 right-0 w-full h-px bg-gradient-to-r from-transparent via-[#800000] to-transparent opacity-50"></div>
+<div class="max-w-3xl mx-auto bento-card p-8 md:p-12 rounded-2xl shadow-2xl relative z-10">
+<div class="text-center mb-10">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-white mb-4">تحدث مع فريق الخبراء</h2>
+<p class="font-body-md text-on-surface-variant">جاهزون لتحويل رؤيتك إلى واقع رقمي قوي.</p>
+</div>
+<form class="flex flex-col gap-6" id="contactForm">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="flex flex-col gap-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant">الاسم الكامل</label>
+<input id="name" autocomplete="additional-name" class="w-full bg-[#0A0A0A] glowing-border text-white p-3 font-body-md" placeholder="أدخل اسمك" type="text" required/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant">رقم الهاتف</label>
+<input id="phone_number" autocomplete="tel" class="w-full bg-[#0A0A0A] glowing-border text-white p-3 font-body-md" dir="ltr" placeholder="أدخل رقمك" style="text-align: right;" type="tel" required/>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant">البريد الإلكتروني</label>
+<input id="email" autocomplete="email" class="w-full bg-[#0A0A0A] glowing-border text-white p-3 font-body-md" dir="ltr" placeholder="البريد الإلكتروني" style="text-align: right;" type="email" required/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant">نوع الخدمة</label>
+<select id="service" class="w-full bg-[#0A0A0A] glowing-border text-white p-3 font-body-md appearance-none">
+<option value="bot">بوتات الذكاء الاصطناعي (AI Bot)</option>
+<option value="web">بناء الأنظمة والمواقع (Web/System)</option>
+<option value="automation">أتمتة العمليات (Automation)</option>
+<option value="data entry">داتا إنترى (Data Entry)</option>
+<option value="consultation">استشارة هندسية (Consultation)</option>
+</select>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant">تفاصيل المشروع (اختياري)</label>
+<textarea id="explain" class="w-full bg-[#0A0A0A] glowing-border text-white p-3 font-body-md h-32 resize-none" placeholder="صف احتياجاتك باختصار..."></textarea>
+</div>
+<button class="glowing-btn pulse-glow text-white py-4 rounded-lg font-headline-md text-headline-md mt-4 w-full shadow-[0_0_20px_rgba(128,0,0,0.4)]" type="submit">
+                    أرسل طلبي وسنتواصل معك خلال 24 ساعة
+                </button>
+</form>
+</div>
+</section>
+
+<!-- ====== الفوتر ====== -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-lowest w-full px-margin-mobile md:px-margin-desktop py-12 flex flex-col items-center gap-unit rtl border-t border-surface-variant/20 fade-up">
+<div class="font-headline-md text-headline-md text-primary mb-4">
+            نخبة المهندسين
+        </div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 text-center max-w-lg">
+            نضمن أعلى جودة، وأسرع تسليم.
+        </p>
+<div class="text-on-surface-variant font-bold mb-4">
+            5+ سنوات خبرة
+        </div>
+<div class="flex flex-wrap justify-center gap-6 mb-8">
+<a class="text-on-surface-variant hover:text-primary transition-all opacity-80 hover:opacity-100 font-label-caps text-label-caps" href="#">سياسة الخصوصية</a>
+<a class="text-on-surface-variant hover:text-primary transition-all opacity-80 hover:opacity-100 font-label-caps text-label-caps" href="#">الشروط والأحكام</a>
+<a class="text-on-surface-variant hover:text-primary transition-all opacity-80 hover:opacity-100 font-label-caps text-label-caps" href="#">اتصل بنا</a>
+</div>
+<div class="text-on-surface-variant font-body-md text-sm text-center">
+            © ٢٠٢٤ جميع الحقوق محفوظة. ضمان الجودة وخبرة تزيد عن ٥ سنوات.
+        </div>
+</footer>
+
+<script>
+    // 1. التمرير السلس للروابط الداخلية
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+
+    // 2. مراقب ظهور العناصر عند التمرير (Fade-up)
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.fade-up').forEach((el) => {
+        observer.observe(el);
+    });
+
+    // 3. تأثير التموج (Ripple) عند الضغط على الأزرار
+    document.querySelectorAll('.glowing-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            const rect = this.getBoundingClientRect();
+            this.style.setProperty('--x', ((e.clientX - rect.left) / rect.width * 100) + '%');
+            this.style.setProperty('--y', ((e.clientY - rect.top) / rect.height * 100) + '%');
+        });
+    });
+
+    // 4. معالجة إرسال النموذج (محاكاة)
+    document.getElementById('contactForm')?.addEventListener('submit',function(e) {
+        e.preventDefault();
+
+        const name=document.getElementById('name').value;
+        const phone=document.getElementById('phone_number').value;
+        const email=document.getElementById('email').value;
+        const service=document.getElementById('service').value;
+        const explain=document.getElementById('explain').value;
+
+        fetch('https://n8n.nsrelmtagr.com/webhook/a6780be8-5c0c-4341-8ea2-7c78b73ce954',{
+          method:'POST',
+          body:JSON.stringify({name,phone,email,service,explain})
+        }).then(res=>res.json())
+        .then(data=>{
+          alert('شكراً لتواصلك! سيتم الرد عليك خلال 24 ساعة متنساش تشترك فى حسابتنا.');
+        })
+        .catch(ex=>{
+          // send ex to new workflow
+          console.log(ex);
+          alert('للأسف فى مشكله وبنحلها حالا فى اسرع وقت للتواصل مع الدعم كلم +201211260324.');
+        }).finally(()=>{
+          this.reset();
+        });
+
+    });
+</script>
+</body>
+</html>
